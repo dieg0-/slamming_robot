@@ -6,6 +6,7 @@
   <!--<arg name="world_file" default="$(find my_robot)/worlds/empty.world"/>-->
   <arg name="world_file" default="$(find my_robot)/worlds/my_apartment.world"/>
   <arg name="robot_file" default="$(find my_robot)/urdf/differential_drive_bot.xacro"/>
+  <!--<arg name="robot_file" default="$(find my_robot)/urdf/ddbot_with_mobile_caster.xacro"/>-->
 
   <!-- Robot pose -->
   <arg name="x" default="-3.03"/>
