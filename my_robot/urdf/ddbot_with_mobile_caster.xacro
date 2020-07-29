@@ -2,7 +2,7 @@
 
 <robot name="dd_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- Import file with plugins for the camera, the lidar and the wheels (differential drive model for the odometry) -->
-  <!--<xacro:include filename="$(find my_robot)/urdf/differential_drive_bot_plugins.gazebo" />-->
+  <xacro:include filename="$(find my_robot)/urdf/ddbot_plugins.gazebo" />
   <!--<xacro:include filename="$(find my_robot)/urdf/colors.gazebo" />-->
 
   <link name="robot_footprint"></link>
@@ -13,7 +13,7 @@
     <child link="chassis" />
   </joint>
 
-  <link name='chassis'> <!-- This link encompasses the base and the caster wheels (Hence no need for additional links or joints)-->
+  <link name='chassis'>
     <pose>0 0 0.2 0 0 0</pose>
 
     <inertial>
