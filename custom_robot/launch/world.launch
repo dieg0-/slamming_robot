@@ -24,7 +24,7 @@
   </include>
 
   <!-- Launch other relevant files-->
-  <include file="$(find my_robot)/launch/robot_description.launch">
+  <include file="$(find custom_robot)/launch/robot_description.launch">
     <arg name="robot_file" value="$(arg robot_file)"/>
   </include>
 
@@ -35,6 +35,6 @@
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
               
   <!--launch rviz-->
-  <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find my_robot)/rviz/my_config.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find custom_robot)/rviz/my_config.rviz" />
 
 </launch>
