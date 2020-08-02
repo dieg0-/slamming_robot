@@ -9,7 +9,8 @@ This project demonstrates the usage of the Adaptive Monte Carlo Localization (AM
 #### Usage:
 1. Run ``roslaunch self_localizing_robot world.launch``. This starts RVIZ and Gazebo with a custom robot equipped with a camera and a laser scanner.
 2. Run ``roslaunch self_localizing_robot amcl.launch``. This starts the map server and loads the corresponding map. Additionally, it starts the navigation stack for the robot, enables teleoperation, and runs the Adaptive Monte Carlo Localization.
-3. The AMCL parameters are already tuned and should work fine for the given map and robot. For further tuning run ``rosrun rqt_reconfigure rqt_reconfigure`` and go to the **amcl** tab.
+3. By default, teleoperation is activated within the amcl.launch file. On the corresponding terminal, use the keyboard to navigate the robot around the map. The green arrows are the localization estimates of the particle filter.
+4. The AMCL parameters are already tuned and should work fine for the given map and robot. For further tuning run ``rosrun rqt_reconfigure rqt_reconfigure`` and go to the **amcl** tab.
 
 #### Maps:
 
