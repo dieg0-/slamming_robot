@@ -1,16 +1,36 @@
 <launch>
-    <arg name="map_file" default="$(find self_localizing_robot)/maps/my_apartment_map.yaml"/>
+    <arg name="map_file" default="$(find self_localizing_robot)/maps/my_gmapped_apartment.yaml"/>
+    <arg name="use_teleop" default="true"/>
     
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
     
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
 	    <!--<remap from="scan" to="/custom_robot/laser/scan"/>-->
-	<param name="odom_frame_id" value="odom"/> 
-	<param name="odom_model_type" value="diff-corrected"/> 
-	<param name="base_frame_id" value="robot_footprint"/> 
-	<param name="global_frame_id" value="map"/> 
-	<param name="initial_pose_x" value="-3.03"/>
-        <param name="initial_pose_y" value="-0.67"/>
+	    <param name="odom_frame_id" value="odom"/> 
+	    <param name="odom_model_type" value="diff-corrected"/> 
+	    <param name="base_frame_id" value="robot_footprint"/> 
+	    <param name="global_frame_id" value="map"/>
+        <!-- As here the odometry comes from Gazebo directly, noise parameters do not need tuning -->
+
+        <!-- Pose used to initialize the Gaussian distribution--> 
+	    <param name="initial_pose_x" value="0.0"/>
+        <param name="initial_pose_y" value="0.0"/>
+        <param name="initial_pose_a" value="0.0"/>
+
+        <param name="min_particles" value="100"/>
+        <param name="max_particles" value="2000"/>
+
+        <param name="resample_interval" value="1"/>
+
+        <param name="update_min_a" value="0.2"/>
+        <param name="update_min_d" value="0.25"/>
+
+        <param name="laser_model_type" value="likelihood_field"/>
+        <param name="laser_min_range" value="-1.0"/>
+        <param name="laser_max_range" value="-1.0"/>
+        <param name="laser_max_beams" value="30"/>
+        <param name="laser_z_hit" value="0.80"/>
+        <param name="laser_z_rand" value="0.20"/>
     </node>
 
     <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
@@ -24,5 +44,9 @@
         <rosparam file="$(find self_localizing_robot)/config/global_costmap_params.yaml" command="load" />
         <rosparam file="$(find self_localizing_robot)/config/base_local_planner_params.yaml" command="load" />
     </node>
-    
+
+    <group if="$(arg use_teleop)">
+        <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py"/> 
+    </group>
+
 </launch>
