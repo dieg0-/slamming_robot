@@ -6099,7 +6099,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='my_robot'>
+      <model name='rover'>
         <pose frame=''>-3.04127 -0.670253 0.099996 7e-06 0.000668 -1.58161</pose>
         <scale>1 1 1</scale>
         <link name='left_wheel'>
@@ -6142,7 +6142,7 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <model name='my_robot'>
+    <model name='rover'>
       <link name='robot_footprint'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>

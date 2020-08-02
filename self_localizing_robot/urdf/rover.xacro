@@ -1,8 +1,8 @@
 <?xml version='1.0'?>
 
-<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find my_robot)/urdf/my_robot.gazebo" />
-  <xacro:include filename="$(find my_robot)/urdf/rover_colors.gazebo" />
+<robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find self_localizing_robot)/urdf/rover_plugins.gazebo" />
+  <xacro:include filename="$(find self_localizing_robot)/urdf/rover_colors.gazebo" />
   <link name="robot_footprint"></link>
 
   <joint name="robot_footprint_joint" type="fixed">
@@ -232,7 +232,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	<mesh filename="package://my_robot/meshes/hokuyo.dae"/>
+	<mesh filename="package://self_localizing_robot/meshes/hokuyo.dae"/>
       </geometry>
     </visual>-->
     

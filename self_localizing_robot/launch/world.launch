@@ -4,8 +4,8 @@
 
   <!-- World File -->
   <!--<arg name="world_file" default="$(find my_robot)/worlds/empty.world"/>-->
-  <arg name="world_file" default="$(find my_robot)/worlds/my_apartment.world"/>
-  <arg name="robot_file" default="$(find my_robot)/urdf/rover.xacro"/>
+  <arg name="world_file" default="$(find self_localizing_robot)/worlds/my_apartment.world"/>
+  <arg name="robot_file" default="$(find self_localizing_robot)/urdf/rover.xacro"/>
 
   <!-- Robot pose -->
   <arg name="x" default="-3.03"/>
@@ -24,7 +24,7 @@
   </include>
 
   <!-- Launch other relevant files-->
-  <include file="$(find custom_robot)/launch/robot_description.launch">
+  <include file="$(find self_localizing_robot)/launch/robot_description.launch">
     <arg name="robot_file" value="$(arg robot_file)"/>
   </include>
 
@@ -35,6 +35,6 @@
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
               
   <!--launch rviz-->
-  <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find custom_robot)/rviz/my_config.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find self_localizing_robot)/rviz/my_config.rviz" />
 
 </launch>
