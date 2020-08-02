@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="gmapping" type="slam_gmapping" name="rover_gmapping" output="screen" >
+    <param name="odom_frame" value="odom" />
+    <param name="base_frame" value="robot_footprint" />
+    </node>
+</launch>
