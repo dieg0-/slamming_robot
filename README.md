@@ -4,7 +4,8 @@
 
 This project demonstrates the usage of the Adaptive Monte Carlo Localization (AMCL) ROS Package, through a custom robot designed via URDF. 
 
-![AMCL](/images/robot_localizing_3.png)
+![AMCL-initial](/images/initial_estimate.png)
+![AMCL-estimate](/images/robot_localizing_1.png)
 
 #### Usage:
 1. Run ``roslaunch self_localizing_robot world.launch``. This starts RVIZ and Gazebo with a custom robot equipped with a camera and a laser scanner.
