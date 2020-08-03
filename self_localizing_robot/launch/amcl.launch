@@ -10,11 +10,10 @@
 	    <param name="odom_model_type" value="diff-corrected"/> 
 	    <param name="base_frame_id" value="robot_footprint"/> 
 	    <param name="global_frame_id" value="map"/>
-        <!-- As here the odometry comes from Gazebo directly, noise parameters do not need tuning -->
 
         <!-- Pose used to initialize the Gaussian distribution--> 
-	    <param name="initial_pose_x" value="0.0"/>
-        <param name="initial_pose_y" value="0.0"/>
+	    <param name="initial_pose_x" value="-3.03"/>
+        <param name="initial_pose_y" value="-0.67"/>
         <param name="initial_pose_a" value="0.0"/>
 
         <param name="min_particles" value="100"/>
@@ -29,8 +28,10 @@
         <param name="laser_min_range" value="-1.0"/>
         <param name="laser_max_range" value="-1.0"/>
         <param name="laser_max_beams" value="30"/>
-        <param name="laser_z_hit" value="0.80"/>
-        <param name="laser_z_rand" value="0.20"/>
+
+        <!-- Trust on actual map (*_hit) vs Randomness (*_rand): Sum must equal 1 -->
+        <param name="laser_z_hit" value="0.95"/>
+        <param name="laser_z_rand" value="0.05"/>
     </node>
 
     <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
