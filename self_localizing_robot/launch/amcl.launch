@@ -6,10 +6,10 @@
     
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
 	    <!--<remap from="scan" to="/custom_robot/laser/scan"/>-->
-	    <param name="odom_frame_id" value="odom"/> 
-	    <param name="odom_model_type" value="diff-corrected"/> 
+	    
 	    <param name="base_frame_id" value="robot_footprint"/> 
 	    <param name="global_frame_id" value="map"/>
+        <param name="odom_frame_id" value="odom"/> 
 
         <!-- Pose used to initialize the Gaussian distribution--> 
 	    <param name="initial_pose_x" value="-3.03"/>
@@ -30,8 +30,15 @@
         <param name="laser_max_beams" value="30"/>
 
         <!-- Trust on actual map (*_hit) vs Randomness (*_rand): Sum must equal 1 -->
-        <param name="laser_z_hit" value="0.95"/>
-        <param name="laser_z_rand" value="0.05"/>
+        <param name="laser_z_hit" value="0.96"/>
+        <param name="laser_z_rand" value="0.04"/>
+
+        <param name="odom_model_type" value="diff-corrected"/> 
+        <param name="odom_alpha1" value="0.2"/>
+        <param name="odom_alpha2" value="0.3"/>
+        <param name="odom_alpha3" value="0.2"/>
+        <param name="odom_alpha4" value="0.25"/>
+        <!-- alpha5 is only used in omni mode -->
     </node>
 
     <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
