@@ -1,5 +1,5 @@
 <launch>
-    <arg name="map_file" default="$(find self_localizing_robot)/maps/my_gmapped_apartment.yaml"/>
+    <arg name="map_file" default="$(find slamming_robot)/maps/my_gmapped_apartment.yaml"/>
     <arg name="use_teleop" default="true"/>
     
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
@@ -46,11 +46,11 @@
 	<param name="base_global_planner" value="navfn/NavfnROS" />
 	<param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
 
-	<rosparam file="$(find self_localizing_robot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
-        <rosparam file="$(find self_localizing_robot)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find self_localizing_robot)/config/local_costmap_params.yaml" command="load" />
-        <rosparam file="$(find self_localizing_robot)/config/global_costmap_params.yaml" command="load" />
-        <rosparam file="$(find self_localizing_robot)/config/base_local_planner_params.yaml" command="load" />
+	<rosparam file="$(find slamming_robot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find slamming_robot)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find slamming_robot)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find slamming_robot)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find slamming_robot)/config/base_local_planner_params.yaml" command="load" />
     </node>
 
     <group if="$(arg use_teleop)">

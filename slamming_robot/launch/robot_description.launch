@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="robot_file" default="$(find self_localizing_robot)/urdf/rover.xacro"/>
+  <arg name="robot_file" default="$(find slamming_robot)/urdf/rover.xacro"/>
 
   <!-- send urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(arg robot_file)'" />
