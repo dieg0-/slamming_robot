@@ -1,8 +1,8 @@
 <?xml version='1.0'?>
 
 <robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find self_localizing_robot)/urdf/rover_plugins.gazebo" />
-  <xacro:include filename="$(find self_localizing_robot)/urdf/rover_colors.gazebo" />
+  <xacro:include filename="$(find slamming_robot)/urdf/rover_plugins.gazebo" />
+  <xacro:include filename="$(find slamming_robot)/urdf/rover_colors.gazebo" />
   <link name="robot_footprint"></link>
 
   <joint name="robot_footprint_joint" type="fixed">
@@ -232,6 +232,15 @@
       <axis xyz="0 1 0" rpy="0 0 0"/>
       <limit effort="10000" velocity="1000"/>
       <dynamics damping="1.0" friction="1.0"/>
+  </joint>
+
+  <link name="camera_link_optical">
+  </link>
+
+  <joint name="camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
+    <parent link="camera"/>
+    <child link="camera_link_optical"/>
   </joint>
 
   <link name="hokuyo">
