@@ -4,7 +4,7 @@
 
   <!-- World File -->
   <!--<arg name="world_file" default="$(find my_robot)/worlds/empty.world"/>-->
-  <arg name="world_file" default="$(find slamming_robot)/worlds/my_apartment.world"/>
+  <arg name="world_file" default="$(find slamming_robot)/worlds/apartment_and_tree.world"/>
   <arg name="robot_file" default="$(find slamming_robot)/urdf/rover.xacro"/>
 
   <!-- Robot pose -->
