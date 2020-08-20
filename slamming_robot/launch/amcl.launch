@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <launch>
     <arg name="map_file" default="$(find slamming_robot)/maps/my_gmapped_apartment.yaml"/>
     <arg name="use_teleop" default="true"/>
