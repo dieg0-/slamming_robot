@@ -258,7 +258,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	<mesh filename="package://self_localizing_robot/meshes/hokuyo.dae"/>
+	<mesh filename="package://slamming_robot/meshes/hokuyo.dae"/>
       </geometry>
     </visual>-->
     
